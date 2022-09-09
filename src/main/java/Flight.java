@@ -109,4 +109,9 @@ public class Flight {
     public void setPassengers(ArrayList<Passenger> passengers) {
         this.passengers = passengers;
     }
+
+    public double weightTakenByPas(){
+        return getPlane().getWeight()/2 - this.weightCapcity;
+    }
+
 }

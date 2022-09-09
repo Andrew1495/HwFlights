@@ -150,4 +150,11 @@ public class FlightTest {
 
     }
 
+    @Test
+    public void checkWeightTakenByPass(){
+        flight.bookPassenger(passenger1);
+        flight.bookPassenger(passenger2);
+        assertEquals( 10, flight.weightTakenByPas(), 0.0);
+    }
+
 }
