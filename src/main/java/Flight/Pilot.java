@@ -1,3 +1,5 @@
+package Flight;
+
 public class Pilot extends Crew {
 
     private String licence;

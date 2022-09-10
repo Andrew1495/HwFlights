@@ -1,10 +1,11 @@
+package Flight;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Passenger {
     private String name;
 
-    public ArrayList<Bags> bags;
+    private ArrayList<Bags> bags;
 
     public ArrayList<Bags> getBags() {
         return bags;
@@ -15,15 +16,26 @@ public class Passenger {
     }
 
     private int seatNo;
+    private int noOfBags;
     private
     HashMap<String, Object> booking;
 
-    public Passenger(String name,ArrayList<Bags> bags){
+    public Passenger(String name, int noOfBags){
         this.name = name;
-        this.bags = bags;
+        this.noOfBags = noOfBags;
+        this.bags = addBags();
         this.seatNo = 0;
         this.booking = booking;
     }
+
+    private ArrayList<Bags> addBags(){
+       ArrayList<Bags> makeBags = new ArrayList<>();
+        for (int i = 0; i < this.noOfBags ; i++) {
+            makeBags.add(new Bags(i));
+        }
+        return makeBags;
+    }
+
 
     public void setBooking(HashMap<String, Object> booking) {
         this.booking = booking;

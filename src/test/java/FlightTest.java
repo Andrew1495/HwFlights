@@ -1,3 +1,4 @@
+import Flight.*;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
@@ -25,22 +26,15 @@ public class FlightTest {
     ArrayList<Pilot> pilots;
 
     Flight flight;
-    Bags bag;
 
 
     @Before
     public void setUp() {
-        passenger1 = new Passenger("bob", new ArrayList<Bags>());
-        passenger2 = new Passenger("frank", new ArrayList<Bags>());
-        passenger3 = new Passenger("lilly", new ArrayList<Bags>());
-        passenger4 = new Passenger("kat", new ArrayList<Bags>());
+        passenger1 = new Passenger("bob", 1);
+        passenger2 = new Passenger("frank", 1);
+        passenger3 = new Passenger("lilly", 1);
+        passenger4 = new Passenger("kat", 3);
 
-        passenger1.bags.add(bag);
-        passenger2.bags.add(bag);
-        passenger3.bags.add(bag);
-        passenger4.bags.add(bag);
-        passenger4.bags.add(bag);
-        passenger4.bags.add(bag);
 
         pilot1 = new Pilot("teddy", Ranks.CAPTAIN, "000POP" );
         pilot2 = new Pilot("Bobby", Ranks.FIRSTOFFICER, "111POP" );

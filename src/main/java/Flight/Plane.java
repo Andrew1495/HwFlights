@@ -1,3 +1,5 @@
+package Flight;
+
 public enum Plane {
     TESTPLANE(2, 400),
     BOEING747(40, 500),

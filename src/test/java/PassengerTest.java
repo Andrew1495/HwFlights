@@ -1,3 +1,5 @@
+import Flight.Bags;
+import Flight.Passenger;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,8 +13,8 @@ public class PassengerTest {
     Bags bag;
     @Before
     public void setUp() {
-        passenger = new Passenger("bob",new ArrayList<Bags>());
-        passenger.bags.add(bag);
+        passenger = new Passenger("bob",1);
+
     }
 
     @Test

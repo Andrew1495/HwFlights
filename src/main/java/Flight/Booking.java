@@ -1,4 +1,5 @@
-import java.time.LocalDateTime;
+package Flight;
+
 import java.util.Date;
 import java.util.HashMap;
 
@@ -26,10 +27,10 @@ public class Booking {
 
     public HashMap<String, Object> makeTicket(){
         HashMap<String, Object> temp = new HashMap<String, Object>();
-        temp.put("Flight Number", flightNo);
-        temp.put("Departure", dept);
-        temp.put("Destination", dest);
-        temp.put("Departure Tome", deptTime);
+        temp.put("Flight Number:", flightNo);
+        temp.put("Departure:", dept);
+        temp.put("Destination:", dest);
+        temp.put("Departure Date:", deptTime);
         return temp;
     }
 

@@ -1,3 +1,4 @@
+import Flight.Plane;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

@@ -1,3 +1,5 @@
+package Flight;
+
 public class Crew{
 
     protected String name;

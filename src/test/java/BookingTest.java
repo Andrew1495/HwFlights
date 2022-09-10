@@ -1,8 +1,9 @@
+import Flight.Booking;
+import Flight.Location;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.Date;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
 
 import static org.junit.Assert.*;
@@ -19,6 +20,6 @@ public class BookingTest {
     @Test
     public void getTicket() {
       HashMap<String, Object> ticket = booking.getTicket();
-      assertEquals("123abc", ticket.get("Flight Number"));
+      assertEquals("123abc", ticket.get("Flight.Flight Number"));
     }
 }

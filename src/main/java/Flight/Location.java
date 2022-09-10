@@ -1,3 +1,5 @@
+package Flight;
+
 public enum Location {
     EDI,
     GLA,

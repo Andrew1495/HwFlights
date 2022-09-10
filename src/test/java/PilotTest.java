@@ -1,3 +1,5 @@
+import Flight.Pilot;
+import Flight.Ranks;
 import org.junit.Before;
 import org.junit.Test;
 
