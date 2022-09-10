@@ -51,31 +51,70 @@ public class Client {
         pilots.add(pilot1);
         pilots.add(pilot2);
 
+        ArrayList<Passenger> pasToBook =  pasToBook = new ArrayList<Passenger>();
 
         Flight flight;
+        int noOfTickets;
 
-        System.out.print("Enter yes to start and quit or q to exit");
+
+
         Scanner in = new Scanner(System.in);
-        while(!in.next().equals("quit") || !in.next().equals("q")) {
-            System.out.printf("What is your name? %n ");
-            String name = in.nextLine();
-            System.out.printf(" How many bags do you have ? %n");
-            int bagCount = in.nextInt();
-            System.out.printf("Where do you want to travel ? eg EDI %n");
-            System.out.printf(Arrays.toString(Location.values()) + "/%n");
-            String location = in.next();
 
-            while (!Client.checkLocation(location)) {
-                System.out.printf("Where do you want to travel ? eg EDI %n");
-                System.out.printf(Arrays.toString(Location.values()) + "%n");
-                location = in.next();
-            }
-            Location destination = destFromInput(location);
-            passenger = new Passenger(name, bagCount);
-            flight = new Flight(Plane.BOEING101, pilots, crew, new ArrayList<Passenger>(), "123" + location, destination, Location.EDI, getDateTime.makeDate());
-            flight.bookPassenger(passenger);
-            System.out.printf("Ticket: " + passenger.getBooking() + "%n");
-            System.out.printf("Your Seat Number is %S", passenger.getSeatNo());
+        System.out.printf("Where do you want to travel from ?  eg EDI%n");
+        System.out.printf(Arrays.toString(Location.values()) + "%n");
+        String deptLocation = in.next();
+        while (!Client.checkLocation(deptLocation)) {
+            System.out.printf("Where do you want to travel from ? eg EDI%n");
+            System.out.printf(Arrays.toString(Location.values()) + "%n");
+            deptLocation = in.next();
         }
-    }
+        System.out.printf("Where do you want to travel ? eg EDI %n");
+        System.out.printf(Arrays.toString(Location.values()) + "/%n");
+        String location = in.next();
+
+        while (!Client.checkLocation(location)) {
+            System.out.printf("Where do you want to travel ? eg EDI %n");
+            System.out.printf(Arrays.toString(Location.values()) + "%n");
+            location = in.next();
+        }
+
+
+        System.out.printf("What date do you want to travel ?%n DD-MM-YYYY %n");
+        String date = in.next();
+        while (!getDateTime.canMakeDate(date)) {
+            System.out.printf("Please enter a valid date ?%n DD-MM-YYYY %n");
+           date = in.next();
+        }
+        Date setDate = getDateTime.makeDate(date);
+        Location destination = destFromInput(location);
+        Location depart = destFromInput(deptLocation);
+
+        flight = new Flight(Plane.BOEING303, pilots, crew, new ArrayList<Passenger>(), "123" + location, destination, depart, setDate);
+
+
+        System.out.printf("How many tickets would you like to book ? %n");
+            noOfTickets = in.nextInt();
+        for (int i = 0; i < noOfTickets ; i++) {
+            System.out.printf("What is your firstname? %n");
+            String fName = in.next();
+            System.out.printf("What is your surname? %n");
+            String sName = in.next();
+            String name = fName + " " + sName;
+            System.out.printf("How many bags do you have ? %n");
+            int bagCount = in.nextInt();
+            passenger = new Passenger(name, bagCount);
+
+            pasToBook.add(passenger);
+            }
+
+
+        for (Passenger pass :pasToBook) {
+            flight.bookPassenger(pass);
+            System.out.printf("%s's Ticket: " + pass.getBooking() + "%n", pass.getName());
+            System.out.printf("Your Seat Number is %S%n", pass.getSeatNo());
+        }
+
+        }
+
 }
+
